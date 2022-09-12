@@ -17,9 +17,16 @@ const mainlist = function mainList(){
 
 }
 
-
-function createItem(title,description,dueDate,priority,doneStatus){
-    return { title, description, dueDate, priority, doneStatus}
+function listInit(){
+    return currentlist = [];
 }
 
-export { mainlist };
+function createItem(title,description,dueDate,priority,doneStatus){
+    return item = { title:title, description:description, dueDate:dueDate, priority:priority, doneStatus:doneStatus }
+}
+
+function appendItem(listobj){
+    currentlist.push(listobj);
+}
+
+export { mainlist, createItem, listInit, appendItem };
