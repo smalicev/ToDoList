@@ -1,7 +1,5 @@
 import { xor } from "lodash";
 
-
-
 const pageLoad = function pageLoad(){
 const page = document.querySelector('#content');
 const header = document.createElement('div');
@@ -9,6 +7,7 @@ const maintent = document.createElement('div');
 const footer = document.createElement('div');
 maintent.classList.add('maintent');
 header.classList.add('header');
+
 
 const mainCard3 = document.createElement('div');
 mainCard3.classList.add('mainCard3');
@@ -23,7 +22,7 @@ mainCard4.innerHTML = '';
 
 const copyref = document.createElement('div');
 copyref.classList.add('ref');
-copyref.innerHTML = '<p> Copyright © Srdjan Malicevic';
+copyref.innerHTML = '<p> © Copyright Srdjan Malicevic';
 
 const mainCard = document.createElement('div');
 mainCard.classList.add('mainCard');
@@ -33,12 +32,12 @@ mainCard.classList.add('mainCard');
 const menubut = document.createElement('button');
 const aboutbut = document.createElement('button');
 const contactbut = document.createElement('button');
+
 footer.classList.add('footer');
 
 menubut.classList.add('Restbut');
 aboutbut.classList.add('Restbut');
 contactbut.classList.add('Restbut');
-
 
 aboutbut.innerText = 'Completed';
 menubut.innerText = 'Current List';
@@ -55,7 +54,6 @@ mainCard.appendChild(mainCard2);
 mainCard.appendChild(mainCard4);
 maintent.appendChild(copyref);
 
-
 header.appendChild(menubut);
 header.appendChild(aboutbut);
 header.appendChild(contactbut);
@@ -66,4 +64,50 @@ aboutbut.setAttribute('id','aboutbut');
 contactbut.setAttribute('id','contactbut');
 }
 
-export { pageLoad };
+let todolistform = function todolistform(){
+    /% Form Formation %/
+    let todolist = document.createElement('FORM');
+    todolist.setAttribute("method", "post");
+    todolist.setAttribute("action", "submit.php")
+
+    let title = document.createElement("input");
+    title.setAttribute("type", "text");
+    title.setAttribute("name", "title");
+    title.setAttribute("placeholder", "Task")
+
+    let description = document.createElement("input");
+    description.setAttribute("type", "text");
+    description.setAttribute("name", "description");
+    description.setAttribute("placeholder", "Stuff to do");
+
+    let dueDate = document.createElement("input");
+    dueDate.setAttribute("type", "text");
+    dueDate.setAttribute("name", "dueDate");
+    dueDate.setAttribute("placeholder", "Done by:");
+
+    let priority = document.createElement("input");
+    priority.setAttribute("type", "text");
+    priority.setAttribute("name", "priority");
+    priority.setAttribute("placeholder", "Importance");
+
+    let doneStatus = document.createElement("input");
+    doneStatus.setAttribute("type", "text");
+    doneStatus.setAttribute("name", "doneStatus");
+    doneStatus.setAttribute("placeholder", "Complete?");
+
+    var s = document.createElement("input");
+    s.setAttribute("type", "submit");
+    s.setAttribute("value", "Submit");
+    
+    todolist.append(title);
+    todolist.append(description);
+    todolist.append(dueDate);
+    todolist.append(priority);
+    todolist.append(doneStatus);
+    todolist.append(s);
+ 
+    mainCard.appendChild(todolist)
+
+}
+
+export { pageLoad, todolistform };
